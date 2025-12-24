@@ -28,6 +28,16 @@ const Navbar = () => {
               Contact
             </li>
           </ul>
+
+          {/* right side */}
+          <div className="text-sm px-4 py-2 rounded-full bg-white text-black font-medium hover:bg-blue-500 hover:text-white transition cursor-pointer">
+            Resume
+          </div>
+
+          {/* mobile button */}
+          <button className="md:hidden text-white text-lg focus:outline-none">
+            ☰
+          </button>
         </div>
       </nav>
     </>
