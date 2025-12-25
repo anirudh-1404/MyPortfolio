@@ -1,4 +1,5 @@
 import React from "react";
+import profilePic from "../assets/profile_picture.jpeg";
 
 const Hero = () => {
   const scrollTo = (id) => {
@@ -52,7 +53,7 @@ const Hero = () => {
 
             <div className="relative w-full h-full rounded-full bg-white/70 backdrop-blur-xl border border-white/60 p-2 shadow-2xl">
               <img
-                src="src/assets/profile_picture.jpeg"
+                src={profilePic}
                 alt="Anirudh Joshi"
                 className="w-full h-full object-cover rounded-full grayscale-[30%] hover:grayscale-0 transition duration-500"
               />
