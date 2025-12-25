@@ -31,7 +31,7 @@ const Hero = () => {
           </div>
 
           {/* right image */}
-          <div className="relative mx-auto w-[260px] h-[260px] md:w-[340px] md:h-[340px]">
+          <div className="relative mx-auto w-[260px] h-[260px] md:w-[340px] md:h-[340px] animate-[float_6s_ease-in-out_infinite]">
             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-400 via-purple-400 to-pink-400 blur-[80px] opacity-60"></div>
 
             <div className="absolute -inset-3 rounded-full border border-slate-300/40"></div>
