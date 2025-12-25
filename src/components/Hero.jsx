@@ -3,7 +3,10 @@ import React from "react";
 const Hero = () => {
   return (
     <>
-      <section className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 flex items-center relative overflow-hidden">
+      <section
+        className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 flex items-center relative overflow-hidden"
+        id="home"
+      >
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-16">
           {/* left */}
           <div>

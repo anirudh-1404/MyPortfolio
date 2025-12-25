@@ -42,9 +42,8 @@ const Projects = () => {
 
   return (
     <>
-      <section className="py-32 bg-slate-50 relative">
+      <section className="py-32 bg-slate-50 relative" id="projects">
         <div className="max-w-7xl mx-auto px-6">
-          {/* heading */}
           <p className="text-sm text-blue-600 tracking-widest uppercase mb-4">
             Projects
           </p>
