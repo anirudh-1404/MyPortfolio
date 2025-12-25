@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const sections = document.querySelectorAll("section");
+    const sectionIds = ["home", "skills", "experience", "projects", "contact"];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -16,16 +18,21 @@ const Navbar = () => {
           }
         });
       },
-      { threshold: 0.6 }
+      {
+        threshold: 0.25,
+        rootMargin: "-120px 0px -50% 0px",
+      }
     );
 
     sections.forEach((section) => observer.observe(section));
+
     return () => observer.disconnect();
   }, []);
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setMenuOpen(false); // close mobile menu after click
+    setActiveSection(id); // 👈 instant highlight on click
+    setMenuOpen(false);
   };
 
   const navItemClass = (id) =>
@@ -55,12 +62,17 @@ const Navbar = () => {
             >
               Home
             </li>
-
             <li
               onClick={() => scrollTo("skills")}
               className={navItemClass("skills")}
             >
               Skills
+            </li>
+            <li
+              onClick={() => scrollTo("experience")}
+              className={navItemClass("experience")}
+            >
+              Experience
             </li>
             <li
               onClick={() => scrollTo("projects")}
@@ -77,11 +89,14 @@ const Navbar = () => {
           </ul>
 
           {/* Resume */}
-          <Link to="https://drive.google.com/file/d/1qp-rU9AMIrpCp4JuhBgn1MsvstWxgj4i/view?usp=sharing">
-            <div className="hidden md:block text-sm px-4 py-2 rounded-full bg-white text-black font-medium hover:bg-blue-500 hover:text-white transition cursor-pointer">
-              Resume
-            </div>
-          </Link>
+          <a
+            href="https://drive.google.com/file/d/1qp-rU9AMIrpCp4JuhBgn1MsvstWxgj4i/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:block text-sm px-4 py-2 rounded-full bg-white text-black font-medium hover:bg-blue-500 hover:text-white transition cursor-pointer"
+          >
+            Resume
+          </a>
 
           {/* Mobile Button */}
           <button
@@ -95,43 +110,26 @@ const Navbar = () => {
           {menuOpen && (
             <div className="absolute top-full mt-4 left-1/2 -translate-x-1/2 w-[90vw] bg-zinc-900/90 backdrop-blur-xl border border-white/10 rounded-2xl md:hidden">
               <ul className="flex flex-col items-center gap-6 py-6">
-                <li
-                  onClick={() => scrollTo("home")}
-                  className={navItemClass("home")}
-                >
-                  Home
-                </li>
-                <li
-                  onClick={() => scrollTo("about")}
-                  className={navItemClass("about")}
-                >
-                  About
-                </li>
-                <li
-                  onClick={() => scrollTo("skills")}
-                  className={navItemClass("skills")}
-                >
-                  Skills
-                </li>
-                <li
-                  onClick={() => scrollTo("projects")}
-                  className={navItemClass("projects")}
-                >
-                  Projects
-                </li>
-                <li
-                  onClick={() => scrollTo("contact")}
-                  className={navItemClass("contact")}
-                >
-                  Contact
-                </li>
+                {["home", "skills", "experience", "projects", "contact"].map(
+                  (id) => (
+                    <li
+                      key={id}
+                      onClick={() => scrollTo(id)}
+                      className={navItemClass(id)}
+                    >
+                      {id.charAt(0).toUpperCase() + id.slice(1)}
+                    </li>
+                  )
+                )}
 
-                <div
-                  onClick={() => setMenuOpen(false)}
+                <a
+                  href="https://drive.google.com/file/d/1qp-rU9AMIrpCp4JuhBgn1MsvstWxgj4i/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm px-6 py-2 rounded-full bg-white text-black font-medium hover:bg-blue-500 hover:text-white transition cursor-pointer"
                 >
                   Resume
-                </div>
+                </a>
               </ul>
             </div>
           )}

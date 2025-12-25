@@ -27,7 +27,6 @@ const Contact = () => {
                 janirudh232@gmail.com
               </p>
             </div>
-
             {/* GitHub */}
             <Link to="https://github.com/anirudh-1404">
               <div className="p-6 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white transition shadow-sm hover:shadow-lg">

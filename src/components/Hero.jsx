@@ -1,6 +1,10 @@
 import React from "react";
 
 const Hero = () => {
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <section
@@ -24,10 +28,17 @@ const Hero = () => {
             </p>
 
             <div className="mt-10 flex items-center gap-6">
-              <div className="px-6 py-3 rounded-full bg-slate-900 text-white font-medium hover:bg-blue-600 transition cursor-pointer">
+              <div
+                onClick={() => scrollTo("projects")}
+                className="px-6 py-3 rounded-full bg-slate-900 text-white font-medium hover:bg-blue-600 transition cursor-pointer"
+              >
                 View Projects
               </div>
-              <div className="px-6 py-3 rounded-full border border-slate-300 text-slate-900 hover:bg-slate-900 hover:text-white transition cursor-pointer">
+
+              <div
+                onClick={() => scrollTo("contact")}
+                className="px-6 py-3 rounded-full border border-slate-300 text-slate-900 hover:bg-slate-900 hover:text-white transition cursor-pointer"
+              >
                 Contact Me
               </div>
             </div>
