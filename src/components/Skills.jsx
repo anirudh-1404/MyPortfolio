@@ -1,136 +1,123 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { Layout, Server, Database, Settings, Cpu } from "lucide-react";
 
 const Skills = () => {
-  const frontendSkills = [
-    { name: "React" },
-    { name: "JavaScript" },
-    { name: "Tailwind CSS" },
-    { name: "HTML & CSS" },
+  const skillCategories = [
+    {
+      title: "Frontend",
+      icon: <Layout className="w-6 h-6 text-blue-500" />,
+      skills: ["React.js", "Next.js", "JavaScript", "TypeScript", "Tailwind CSS", "Bootstrap", "Shadcn/UI"],
+      description: "Building responsive, modern, and interactive user interfaces."
+    },
+    {
+      title: "Backend",
+      icon: <Server className="w-6 h-6 text-indigo-500" />,
+      skills: ["Node.js", "Express.js", "REST APIs", "JWT Authentication", "Role-Based Access Control"],
+      description: "Developing secure, performant, and scalable server-side systems."
+    },
+    {
+      title: "Databases",
+      icon: <Database className="w-6 h-6 text-emerald-500" />,
+      skills: ["MongoDB", "PostgreSQL"],
+      description: "Designing efficient, normalized, and optimized databases."
+    },
+    {
+      title: "Tools & Platforms",
+      icon: <Settings className="w-6 h-6 text-amber-500" />,
+      skills: ["Git", "GitHub", "Docker", "Postman", "Axios"],
+      description: "Using standard development, testing, and containerization tooling."
+    },
+    {
+      title: "AI & Development",
+      icon: <Cpu className="w-6 h-6 text-purple-500" />,
+      skills: ["AI Chatbot Integration", "Agentic AI Development", "API Integration"],
+      description: "Integrating LLMs, automated agents, and smart helper utilities."
+    }
   ];
 
-  const backendSkills = [
-    { name: "Node.js" },
-    { name: "Express.js" },
-    { name: "REST APIs" },
-    { name: "CRUD Operations" },
-  ];
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
 
-  const databaseSkills = [{ name: "MongoDB" }];
-
-  const toolsSkills = [
-    { name: "Git" },
-    { name: "GitHub (Basics)" },
-    { name: "Postman" },
-    { name: "Vite" },
-  ];
-
-  const aiSkills = [
-    { name: "Agentic AI Based Development" },
-    { name: "API-based AI Integration" },
-  ];
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
 
   return (
-    <>
-      <section className="py-32 bg-white relative" id="skills">
-        <div className="max-w-7xl mx-auto px-6">
-          {/* heading */}
-          <p className="text-sm text-blue-600 tracking-widest uppercase mb-4">
-            Skills
+    <section className="py-24 bg-white relative overflow-hidden" id="skills">
+      {/* Background soft glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] rounded-full bg-blue-50/30 blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* heading */}
+        <div className="text-center md:text-left">
+          <p className="text-sm text-blue-600 font-bold tracking-widest uppercase mb-3 font-sans">
+            Skills & Stack
           </p>
-          <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 max-w-2xl">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
             Tools & Technologies I Work With
           </h2>
-
-          {/* skills grid */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {/* Frontend */}
-            <div className="group p-6 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white transition shadow-sm hover:shadow-lg">
-              <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                Frontend
-              </h3>
-              <ul className="flex flex-wrap gap-3">
-                {frontendSkills.map((item) => (
-                  <li
-                    key={item.name}
-                    className="px-3 py-1 rounded-full bg-white border border-slate-300 text-sm text-slate-700"
-                  >
-                    {item.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Backend */}
-            <div className="group p-6 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white transition shadow-sm hover:shadow-lg">
-              <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                Backend
-              </h3>
-              <ul className="flex flex-wrap gap-3">
-                {backendSkills.map((item) => (
-                  <li
-                    key={item.name}
-                    className="px-3 py-1 rounded-full bg-white border border-slate-300 text-sm text-slate-700"
-                  >
-                    {item.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Database */}
-            <div className="group p-6 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white transition shadow-sm hover:shadow-lg">
-              <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                Database
-              </h3>
-              <ul className="flex flex-wrap gap-3">
-                {databaseSkills.map((item) => (
-                  <li
-                    key={item.name}
-                    className="px-3 py-1 rounded-full bg-white border border-slate-300 text-sm text-slate-700"
-                  >
-                    {item.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Tools & Workflow */}
-            <div className="group p-6 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white transition shadow-sm hover:shadow-lg">
-              <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                Tools & Workflow
-              </h3>
-              <ul className="flex flex-wrap gap-3">
-                {toolsSkills.map((item) => (
-                  <li
-                    key={item.name}
-                    className="px-3 py-1 rounded-full bg-white border border-slate-300 text-sm text-slate-700"
-                  >
-                    {item.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* AI & Agentic Development */}
-            <div className="group p-6 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white transition shadow-sm hover:shadow-lg">
-              <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                AI & Agentic Development
-              </h3>
-              <ul className="flex flex-wrap gap-3">
-                {aiSkills.map((item) => (
-                  <li
-                    key={item.name}
-                    className="px-3 py-1 rounded-full bg-white border border-slate-300 text-sm text-slate-700"
-                  >
-                    {item.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <p className="mt-4 text-slate-600 text-base max-w-2xl leading-relaxed">
+            I leverage a modern stack of frameworks, languages, databases, and AI tooling to build robust and scalable end-to-end applications.
+          </p>
         </div>
-      </section>
-    </>
+
+        {/* skills grid */}
+        <motion.div 
+          className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {skillCategories.map((category) => (
+            <motion.div
+              key={category.title}
+              variants={cardVariants}
+              className="group p-8 rounded-2xl border border-slate-200/80 bg-slate-50/50 hover:bg-white transition-all duration-300 shadow-sm hover:shadow-xl hover:border-slate-300 flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="p-3 bg-white rounded-xl shadow-sm border border-slate-100 group-hover:scale-110 transition-transform duration-300">
+                    {category.icon}
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-950 font-sans">
+                    {category.title}
+                  </h3>
+                </div>
+                
+                <p className="text-xs text-slate-500 mb-6 leading-relaxed">
+                  {category.description}
+                </p>
+              </div>
+
+              <ul className="flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <li
+                    key={skill}
+                    className="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-xs font-semibold text-slate-700 hover:border-blue-300 hover:text-blue-600 transition-colors duration-200 cursor-default shadow-xs font-sans"
+                  >
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
