@@ -64,7 +64,7 @@ const Experience = () => {
                   </span>
                   <span className="flex items-center gap-1.5">
                     <MapPin size={14} className="text-slate-400" />
-                    On-Site
+                    On-site
                   </span>
                 </div>
               </div>
