@@ -94,7 +94,7 @@ const Navbar = () => {
           {/* Resume & Mobile Button */}
           <div className="flex items-center gap-3">
             <a
-              href="https://drive.google.com/file/d/14kyjbc3avQ1u31fQNQlGyJAMCmxS2o1S/view?usp=sharing"
+              href="https://drive.google.com/file/d/1pawngHiHb_h7fEXN2MfUcNwwy3J6XO55/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden md:flex items-center gap-1.5 text-xs px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold shadow-lg hover:shadow-blue-500/20 transition-all duration-300 hover:-translate-y-0.5 font-sans"
